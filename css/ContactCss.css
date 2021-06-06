@@ -1,0 +1,102 @@
+﻿.Ccontact {
+    font-family: poppins;
+    padding: 43px 0;
+    
+    
+}
+
+
+.Ccontact .c-heading {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+    .Ccontact .c-heading h2
+     {
+        font-size: 45px;
+        background: linear-gradient(#f33a21,#e6ea01);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.Cr-h h4 {
+    font-size: 40px;
+    background: linear-gradient(#f33a21,#e6ea01);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.Ccontact .c-heading p,
+.Cr-h p {
+    
+    font-size: 20px;
+}
+
+        .Cr-h i{
+            font-size: 30px;
+             background: linear-gradient(#f33a21,#e6ea01);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+
+       
+        .ccc-h .box {
+            
+            position: relative;
+            padding: 8px 0;
+            display: flex;
+        }
+
+                .ccc-h .box .icon {
+                    min-width: 60px;
+                    height: 60px;
+                    background: linear-gradient(#f33a21,#e6ea01);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    font-size: 20px;
+                    color: white;
+                }
+
+                .ccc-h .box .icons  {
+                    min-width: 60px;
+                    height: 60px;
+                    align-items: center;
+                    border-radius: 20%;
+                    font-size: 40px;
+                    background: linear-gradient(#f33a21,#e6ea01);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+
+
+    .Ccontact .ccc-h .texts h4 {
+        font-size: 30px;
+        background: linear-gradient(#f33a21,#e6ea01);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.Ccontact .ccc-h .texts p {
+    font-size: 18px;
+}
+
+
+.c-head h4 {
+    font-size: 30px;
+    background: linear-gradient(#f33a21,#e6ea01);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Cc-form {
+    font-size: 18px;
+      
+}
+
+
+

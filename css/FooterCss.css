@@ -1,0 +1,50 @@
+﻿.footer-h{
+    background-color: black;
+    font-family: poppins;
+    align-content: center;
+   
+}
+
+.boxs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+    .boxs h3 {
+        text-decoration: underline;
+        text-decoration-color: #e6ea01;
+        font-size: 30px;
+        color: white;
+    }
+
+    .boxs .iconss i {
+        
+        font-size: 30px;
+        padding: 8px;
+        background: linear-gradient(#f33a21,#e6ea01);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+  
+
+    .f-No p a {
+        font-size: 25px;
+        color: white;
+        text-decoration: none;
+    }
+
+.f-mail p a {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.f-addr p a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
