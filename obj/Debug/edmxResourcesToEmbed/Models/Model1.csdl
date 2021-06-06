@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Contact_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ad_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="categories" Relationship="Self.FK__category__ad_id___540C7B00" FromRole="admin" ToRole="category" />
+    <NavigationProperty Name="people" Relationship="Self.FK__people__pro_adm___5D95E53A" FromRole="admin" ToRole="people" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="bk_id" />
+    </Key>
+    <Property Name="bk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bk_usr_id_fk" Type="Int32" />
+    <Property Name="bk_mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bk_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bk_cal" Type="DateTime" Precision="3" />
+    <Property Name="bk_msg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bk_cat_id_fk" Type="Int32" />
+    <Property Name="bk_pro_id_fk" Type="Int32" />
+    <NavigationProperty Name="category" Relationship="Self.FK__booking__bk_cat___634EBE90" FromRole="booking" ToRole="category" />
+    <NavigationProperty Name="person" Relationship="Self.FK__booking__bk_pro___6442E2C9" FromRole="booking" ToRole="people" />
+    <NavigationProperty Name="tbl_usr" Relationship="Self.FK__booking__bk_usr___625A9A57" FromRole="booking" ToRole="tbl_usr" />
+  </EntityType>
+  <EntityType Name="Car_Table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CrName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CrEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CrFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CrMsg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="cat_id" />
+    </Key>
+    <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cat_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ad_id_fk" Type="Int32" />
+    <Property Name="cat_statuss" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="admin" Relationship="Self.FK__category__ad_id___540C7B00" FromRole="category" ToRole="admin" />
+    <NavigationProperty Name="bookings" Relationship="Self.FK__booking__bk_cat___634EBE90" FromRole="category" ToRole="booking" />
+    <NavigationProperty Name="people" Relationship="Self.FK__people__cat_id_f__5CA1C101" FromRole="category" ToRole="people" />
+  </EntityType>
+  <EntityType Name="Ccon_Table">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cmobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cmsg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="pro_id" />
+    </Key>
+    <Property Name="pro_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pro_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pro_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pro_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cat_id_fk" Type="Int32" />
+    <Property Name="pro_adm_id_fk" Type="Int32" />
+    <NavigationProperty Name="admin" Relationship="Self.FK__people__pro_adm___5D95E53A" FromRole="people" ToRole="admin" />
+    <NavigationProperty Name="bookings" Relationship="Self.FK__booking__bk_pro___6442E2C9" FromRole="people" ToRole="booking" />
+    <NavigationProperty Name="category" Relationship="Self.FK__people__cat_id_f__5CA1C101" FromRole="people" ToRole="category" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_usr">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="u_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="u_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="u_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="u_contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="u_email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="bookings" Relationship="Self.FK__booking__bk_usr___625A9A57" FromRole="tbl_usr" ToRole="booking" />
+  </EntityType>
+  <Association Name="FK__category__ad_id___540C7B00">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="category" Type="Self.category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="category">
+        <PropertyRef Name="ad_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__people__pro_adm___5D95E53A">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="people" Type="Self.person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="people">
+        <PropertyRef Name="pro_adm_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__booking__bk_cat___634EBE90">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="bk_cat_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__booking__bk_pro___6442E2C9">
+    <End Role="people" Type="Self.person" Multiplicity="0..1" />
+    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="people">
+        <PropertyRef Name="pro_id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="bk_pro_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__booking__bk_usr___625A9A57">
+    <End Role="tbl_usr" Type="Self.tbl_usr" Multiplicity="0..1" />
+    <End Role="booking" Type="Self.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_usr">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="bk_usr_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__people__cat_id_f__5CA1C101">
+    <End Role="category" Type="Self.category" Multiplicity="0..1" />
+    <End Role="people" Type="Self.person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="cat_id" />
+      </Principal>
+      <Dependent Role="people">
+        <PropertyRef Name="cat_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Contact_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="bookings" EntityType="Self.booking" />
+    <EntitySet Name="Car_Table" EntityType="Self.Car_Table" />
+    <EntitySet Name="categories" EntityType="Self.category" />
+    <EntitySet Name="Ccon_Table" EntityType="Self.Ccon_Table" />
+    <EntitySet Name="people" EntityType="Self.person" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_usr" EntityType="Self.tbl_usr" />
+    <AssociationSet Name="FK__category__ad_id___540C7B00" Association="Self.FK__category__ad_id___540C7B00">
+      <End Role="admin" EntitySet="admins" />
+      <End Role="category" EntitySet="categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__people__pro_adm___5D95E53A" Association="Self.FK__people__pro_adm___5D95E53A">
+      <End Role="admin" EntitySet="admins" />
+      <End Role="people" EntitySet="people" />
+    </AssociationSet>
+    <AssociationSet Name="FK__booking__bk_cat___634EBE90" Association="Self.FK__booking__bk_cat___634EBE90">
+      <End Role="category" EntitySet="categories" />
+      <End Role="booking" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__booking__bk_pro___6442E2C9" Association="Self.FK__booking__bk_pro___6442E2C9">
+      <End Role="people" EntitySet="people" />
+      <End Role="booking" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__booking__bk_usr___625A9A57" Association="Self.FK__booking__bk_usr___625A9A57">
+      <End Role="tbl_usr" EntitySet="tbl_usr" />
+      <End Role="booking" EntitySet="bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__people__cat_id_f__5CA1C101" Association="Self.FK__people__cat_id_f__5CA1C101">
+      <End Role="category" EntitySet="categories" />
+      <End Role="people" EntitySet="people" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

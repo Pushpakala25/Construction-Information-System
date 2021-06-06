@@ -1,0 +1,79 @@
+﻿/*Start-Awards*/
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.xop-section {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 110px 0;
+    background: #fff;
+    height: 100%;
+    font-family: poppins;
+}
+
+.xop-grid {
+    margin: 20px 0 0 10px;
+    padding: 0;
+    list-style: none;
+    display: block;
+    width: 100%;
+}
+
+    .xop-grid:after {
+        clear: both;
+    }
+
+    .xop-grid:after, .xop-box:before {
+        content: '';
+        display: table;
+    }
+
+    .xop-grid li {
+        width: 305px;
+        height: 340px;
+        display: inline-block;
+        margin: 20px;
+    }
+
+.xop-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-transition: 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out, transform 0.3s ease-in-out,;
+}
+
+    .xop-box:hover {
+        transform: scale(1.05);
+    }
+
+.xop-img-1 {
+    background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.xop-img-2 {
+    background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.xop-img-3 {
+    background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.xop-info {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
+
+/*end-Awards*/

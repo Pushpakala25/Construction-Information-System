@@ -1,0 +1,25 @@
+﻿.reg-h {
+   
+    font-family: poppins;
+    padding: 35px 0;
+    background: #fff;
+}
+
+.r-col {
+    width: 100%;
+    padding: 30px 60px;
+    display: inline-block;
+    border: 2px solid #808080;
+    box-sizing: border-box;
+}
+
+.forms-in {
+    color: black;
+    font-size: 18px;
+}
+
+.regF-h h4{
+    font-size: 20px;
+    text-align: center;
+   
+}
