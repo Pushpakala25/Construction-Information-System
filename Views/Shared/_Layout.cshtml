@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/img/icon.png" />
+    <title>@ViewBag.Title - AnanyaKrishnaa @*My ASP.NET Application*@</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/css/IndexCss.css" rel="stylesheet" />
+    <link href="~/css/AboutUsCss.css" rel="stylesheet" />
+    <link href="~/css/ProjectsCss.css" rel="stylesheet" />
+    <link href="~/css/CompletedCss.css" rel="stylesheet" />
+    <link href="~/css/Awards.css" rel="stylesheet" />
+    <link href="~/css/ContactCss.css" rel="stylesheet" />
+    <link href="~/css/FooterCss.css" rel="stylesheet" />
+
+    <link href="~/css/AdminCss/AdminLoCss.css" rel="stylesheet" />
+    <link href="~/css/AdminCss/RegCss.css" rel="stylesheet" />
+    <link href="~/css/AdminCss/CreateAddCss.css" rel="stylesheet" />
+    <link href="~/css/AdminCss/AViewAddsCSS.css" rel="stylesheet" />
+
+    <link href="~/css/AdminCss/BookAddCss.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href='@Url.Action("Index", "Home", new { area = "AreaName" })'>
+                 <img style="width: 35%;" src="~/img/Logo1.png" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (Session["ad_id"] == null)
+                 {
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("About", "Home")">About</a></li>
+                        <li><a href="@Url.Action("Projects", "Home")">Projects</a></li>
+                        <li><a href="@Url.Action("Awards", "Home")">Awards</a></li>
+                        <li><a href="@Url.Action("Carrers", "Home")">Careers</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Session["u_id"] == null)
+                        {
+                            <li><a href="@Url.Action("Login", "User")"><i class="fa fa-sign-in"></i> Login</a></li>
+                            <li><a href="@Url.Action("Register", "User")"><i class="fa fa-id-card"></i> Register</a></li>
+                        }
+
+                        else
+                        {
+                            <li><a><i class="fa fa-user"></i> Hello!! @Session["u_name"]</a></li>
+                            <li><a href="@Url.Action("LogOut", "User")"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        }                       
+                    </ul>
+                 }
+                else
+                {
+                    <ul class="nav navbar-nav ">
+                        <li><a href="@Url.Action( "ViewCategory", "Admin")">View Category</a></li>
+                        <li><a href="@Url.Action("CreateAdd", "Admin")">Add People </a></li>
+                        <li><a href="@Url.Action( "AdminBdisplay", "Admin")">View  DataBase</a></li>                           
+                    </ul>
+
+                    <ul class="nav navbar-nav  navbar-right">
+                        <li><a><i class="fa fa-user"></i> Hello!! @Session["ad_name"]</a></li>
+                        <li><a href="@Url.Action("Logout", "Admin")"><i class="fa fa-sign-out"></i> Logout</a></li>                        
+                    </ul>                    
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+            @if (Session["ad_id"] == null)
+            {
+                <div class="footer-h">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="boxs">
+
+                                <h3>General Inquiries</h3>
+                                <div class="iconss">
+                                    <a href="tel:044-23664548"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="f-No">
+                                    <p>
+                                        <a href="tel:044-23664548">044-23664548 |</a>
+                                        <a href="tel:044-23664581">044-23664581</a>
+
+                                    </p>
+                                </div>
+                                <div class="f-No">
+                                    <p><a href="tel:7092111155">7092111155</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="boxs">
+
+                                <h3>Social Networks</h3>
+                                <div class="iconss">
+
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+
+
+                                </div>
+                                <div class="f-mail">
+                                    <p>
+                                        <a href="mailto:info@ananyakrishna.com">info@ananyakrishna.com</a>
+                                    </p>
+                                </div>
+                                <br />
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="boxs">
+
+                                <h3>Location</h3>
+                                <div class="iconss">
+                                    <a target="_balnk" href="https://goo.gl/maps/YMRKYWmWgAcxrHFc9"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="f-addr">
+                                    <p>
+                                        <a target="_balnk" href="https://goo.gl/maps/YMRKYWmWgAcxrHFc9">
+                                            Ananyakrishnaa Constructions,
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="f-addr">
+                                    <p>
+                                        <a target="_balnk" href="https://goo.gl/maps/YMRKYWmWgAcxrHFc9">
+                                            No - 1225/1, Panneer Selvam Salai,
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <div class="f-addr">
+                                    <p>
+                                        <a target="_balnk" href="https://goo.gl/maps/YMRKYWmWgAcxrHFc9">
+                                            K K Nagar, Chennai - 600078.
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

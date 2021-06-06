@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjectAK.Models.booking>
+
+@{
+    ViewBag.Title = "AdminBdisplay";
+}
+
+@*<h2>AdminBdisplay</h2>*@
+
+<div class="BookD" style="font-family: poppins; font-size:18px;">
+    <div class="BookD-h" style="text-align: center;">
+        <h2> Bookings Details</h2>
+        <hr />
+    </div>
+    <div class="table-bordered table-responsive table-hover">
+
+        @{
+            WebGrid wbgrid = new WebGrid(source: Model, rowsPerPage: 5);
+        }
+
+        @wbgrid.GetHtml(
+            tableStyle: "table",
+            htmlAttributes: new { @id = "wbgrid" },
+            columns: wbgrid.Columns(
+                    wbgrid.Column("bk_id", "id"),
+                    wbgrid.Column("bk_usr_id_fk", "User ID"),
+                    wbgrid.Column("bk_mobile", "Mobile No"),
+                    wbgrid.Column("bk_mail", "Email ID"),
+                    wbgrid.Column("bk_cal", "Date"),
+                    wbgrid.Column("bk_msg", "Message"),
+                    wbgrid.Column("bk_cat_id_fk", "Category Id"),
+                    wbgrid.Column("bk_pro_id_fk", "People ID")
+                )
+            )
+        </div>
+
+
+
+
+        <div class="row" style="text-align:center;">
+            <hr />
+            <div class="col-md-4">
+                <a href="@Url.Action( "Userdisplay", "Admin")">
+                    <div class=" btn btn-info">User DB</div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action( "Catdisplay", "Admin")">
+                    <div class=" btn btn-info">Category DB</div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action( "Peopledisplay", "Admin")">
+                    <div class=" btn btn-info">People DB</div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    @*<div>
+            <div class="btn btn-success">
+                @Html.ActionLink("User DB", "Userdisplay")
+            </div>
+            <div class="btn btn-success">
+                @Html.ActionLink("Category DB", "Catdisplay")
+            </div>
+            <div class="btn btn-success">
+                @Html.ActionLink("People DB", "Peopledisplay")
+            </div>
+        </div>*@
+
+
+

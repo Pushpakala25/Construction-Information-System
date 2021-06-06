@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="projects_container">
+    <div class="row">
+
+
+        <h2></h2>
+
+        <div class="col-md-4">
+            <div class="projects_box">
+                <div class="projects_icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+                <div class="projects_content">
+                    <h3>COMPLETED</h3>
+                    <p>Our Launched Properties</p>
+                    <a href="@Url.Action("Completed", "Home")">view</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="projects_box">
+                <div class="projects_icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+                <div class="projects_content">
+                    <h3>NEWLY</h3>
+                    <P>New Movin' Properties</P>
+                    <a href="@Url.Action("Newly", "Home")">view</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="projects_box">
+                <div class="projects_icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+                <div class="projects_content">
+                    <h3>UPCOMING</h3>
+                    <P>Soon Arriving Properties</P>
+                    <a href="@Url.Action("Upcoming", "Home")">view</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

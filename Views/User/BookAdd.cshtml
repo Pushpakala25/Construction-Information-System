@@ -1,0 +1,114 @@
+﻿@model ProjectAK.Models.booking
+
+
+@{
+    ViewBag.Title = "BookAdd";
+}
+
+@*<h2>BookAdd</h2>*@
+
+
+@using (Html.BeginForm("BookAdd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+   
+<div class="row B-hhh">
+    <div class="col-md-6">
+        <div class="b-img">
+            <img src="~/img/Admin_Img/appointment.png" alt="Avatar" class="avatr">
+        </div>
+    </div>
+        <div class="col-md-6">
+            <div class="form-horizontal">
+                <div class="formB-hhh">
+                    <h4>Book a Meeting</h4>
+                </div>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="L-form">
+                
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bk_mobile, "Mobile", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.bk_mobile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Mobile No.." } })
+                        @Html.ValidationMessageFor(model => model.bk_mobile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bk_mail, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.bk_mail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Email ID.." } })
+                        @Html.ValidationMessageFor(model => model.bk_mail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bk_cat_id_fk, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.bk_cat_id_fk, ViewBag.categorylist as SelectList, "--select--", new { @class = "form-control" })
+                        @* @Html.EditorFor(model => model.bk_category, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.bk_cat_id_fk, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bk_pro_id_fk, "Designer", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.TextBoxFor(model => model.bk_person)*@
+                        @Html.DropDownListFor(model => model.bk_pro_id_fk, ViewBag.peoplelist as SelectList, "--select--", new { @class = "form-control" })
+                        @*@Html.EditorFor(model => model.bk_person, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.bk_pro_id_fk, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+            @Html.LabelFor(model => model.bk_cal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bk_cal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.bk_cal, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bk_cal, "Calendar", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.bk_cal, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.bk_cal, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.bk_msg, "Message", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        @Html.TextAreaFor(model => model.bk_msg, new { @class = "form-control", cols = "50", rows = "5", @placeholder = "Type your Message.." })
+                        @Html.ValidationMessageFor(model => model.bk_msg, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                </div>
+
+            <div class="S-form">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="btn btn-success btn-block" style=" font-size: 20px;" />
+                    </div>
+                </div>
+            </div>
+
+            <p>@ViewBag.result</p>
+            </div>
+        </div>
+    </div>
+    }
+
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
