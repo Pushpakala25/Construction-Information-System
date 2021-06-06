@@ -1,0 +1,138 @@
+﻿@model ProjectAK.Models.UserClass
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Contact</h2>*@
+<div class="row">
+    <div class="Ccontact">
+        <div class="c-heading">
+            <h2>Contact Us</h2>
+            <p>Want to work with us ? Call us at  <a href="tel:044-23664548" style="color:black; text-decoration: none;">044-23664548</a> </p>
+            <hr />
+        </div>
+        
+            <div class="ccc-h">
+                <div class="col-md-6">
+
+                    <div class="box">
+                        <div class="icon">
+                            <a target="_balnk" href="https://goo.gl/maps/YMRKYWmWgAcxrHFc9" style="color:white;"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                        </div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <div class="texts">
+                            <h4>Address</h4>
+                            <p>
+                                1225/1, Panneerselvam Salai, <br> Sector 13 Jeevanantham Salai,<br> Sector 13, K. K. Nagar,
+                                Chennai, <br>Tamil Nadu 600078
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <a href="tel:044-23664548" style="color:white;"><i class="fa fa-phone" aria-hidden="true"></i></a></div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <div class="texts">
+                            <h4>Phone</h4>
+                            <p>
+                                <a href="tel:044-23664548" style="color:black; text-decoration: none;">044-23664548</a>|
+                                <a href="tel:044-23664581" style="color:black; text-decoration: none;">044-23664581</a>
+                            </p>
+                            <p><a href="tel:7092111155" style="color:black; text-decoration: none;">7092111155</a></p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon">
+                            <a href="mailto:info@ananyakrishna.com" style="color: white;"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                        </div>
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <div class="texts">
+                            <h4>Email</h4>
+                            <a href="mailto:info@ananyakrishna.com" style="color: black; text-decoration: none;"><p>info@ananyakrishna.com</p></a>
+</div>
+                    </div>
+
+
+                    <div class="box">
+                        <div class="icons">
+                            <a href="#"><i class="fa fa-twitter-square" style="color: black" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-facebook-square" style="color: black" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-google-plus-square" style="color: black" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 ">
+
+                <div class="c-head">
+                    <h4>Send Message</h4>
+
+                    <h2></h2>
+                </div>
+
+
+                @using (Html.BeginForm("Contact", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        <h4></h4>
+                        <hr />
+                        <div class="Cc-form" >
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cname, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Cname, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Name.." } })
+                                    @Html.ValidationMessageFor(model => model.Cname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cemail, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Cemail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Email ID.." } })
+                                    @Html.ValidationMessageFor(model => model.Cemail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cmobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Cmobile, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Mobile No.." } })
+                                    @Html.ValidationMessageFor(model => model.Cmobile, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Cmsg, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+
+                                    @Html.TextAreaFor(model => model.Cmsg, new { @class = "form-control", cols = "50", rows = "5", @placeholder = "Type your Message.." })
+                                    @Html.ValidationMessageFor(model => model.Cmsg, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Submit" class="btn btn-default btn-block" style="background: linear-gradient(#f33a21,#e6ea01); color: white; font-size: 20px;" />
+                            </div>
+                        </div>
+
+                        @Html.ViewData["Message"]
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

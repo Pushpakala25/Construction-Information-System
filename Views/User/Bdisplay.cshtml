@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProjectAK.Models.booking>
+
+@{
+    ViewBag.Title = "Bdisplay";
+}
+
+<h2>Display bookings</h2>
+<hr />
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+@{ 
+    WebGrid wbgrid = new WebGrid(source:Model,rowsPerPage:5);
+}
+
+@wbgrid.GetHtml(
+    tableStyle:"table",
+    htmlAttributes: new {@id="wbgrid"},
+    columns:wbgrid.Columns(
+            wbgrid.Column("bk_id","id"),
+            wbgrid.Column("bk_name", "Name"),
+            wbgrid.Column("bk_mobile", "Mobile No"),
+            wbgrid.Column("bk_mail", "Email ID"),
+            wbgrid.Column("bk_cal", "Date"),
+            wbgrid.Column("bk_msg", "Message"),
+            wbgrid.Column("bk_usr_id_fk", "User ID"),
+            wbgrid.Column("bk_cat_id_fk", "Category Id"),
+            wbgrid.Column("bk_pro_id_fk", "People ID")
+        )
+    )
+

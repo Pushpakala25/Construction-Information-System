@@ -1,0 +1,112 @@
+﻿@model ProjectAK.Models.CrClass
+
+@{
+    ViewBag.Title = "Carrers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@*<h2>Carrers</h2>*@
+<div class="Ccontact">
+    <div class="c-heading">
+        <h2>Careers</h2>
+        <p>If you can DREAM it, you can DO it</p>
+        <hr />
+       
+    </div>
+    <div class="c-heading">
+        @*<h2>Contact Us</h2>
+            <p>Want to work with us ? Call us at 044-23664548 </p>
+            <hr />*@
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="Cr-h">
+                <h4>Why choose our team</h4>
+                <p>
+                    <br />
+                    Ananya Krishnaa’s dedicated in-house team is committed to help
+                    customers reach their dream with services of highest quality.<br>
+
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i> Joining our team implies endless space for personal growth along
+                    with the guidance of experienced seniors<br>
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i> We are a team who believes in hardwork and we run the team not
+                    based on hierarchy but on interest, dedication & customer
+                    centricity<br>
+                    <i class="fa fa-hand-o-right" aria-hidden="true"></i> To be able to work in a team as a teamplayer while learning each
+                    day with us, would be our prime expectation
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="c-head">
+                <h4>Careers Form</h4>
+
+
+            </div>
+            @using (Html.BeginForm("Carrers", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4></h4>
+                    <hr />
+
+                    <div class="Cc-form">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CrName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CrName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Full Name.." } })
+                                @Html.ValidationMessageFor(model => model.CrName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CrEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CrEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Email ID.." } })
+                                @Html.ValidationMessageFor(model => model.CrEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CrFile, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <div class="input-data">
+                                    <input type="file" name="file" required="required">
+                                </div>
+                                @Html.ValidationMessageFor(model => model.CrFile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CrMsg, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.CrMsg, new { @class = "form-control", cols = "50", rows = "5", @placeholder = "Tell about your self.." })
+                                @Html.ValidationMessageFor(model => model.CrMsg, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit" class="btn btn-default btn-block" style="background: linear-gradient(#f33a21,#e6ea01); color: white; font-size: 20px;" />
+                        </div>
+                    </div>
+                    @Html.ViewData["Message"]
+
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+    
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

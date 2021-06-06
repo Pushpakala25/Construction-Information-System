@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProjectAK.Models.person>
+
+@{
+    ViewBag.Title = "Peopledisplay";
+}
+
+@*<h2>Peopledisplay</h2>*@
+<div class="row pep" style="font-family: poppins; font-size:17px;">
+    <div class="pepD-h" style="text-align: center;">
+        <h2>People Details</h2>
+        <hr />
+    </div>
+    <div class="table-bordered table-responsive table-hover">
+        @{
+            WebGrid wbgrid = new WebGrid(source: Model, rowsPerPage: 3);
+        }
+
+        @wbgrid.GetHtml(
+            tableStyle: "table table-responsive",
+            htmlAttributes: new { @id = "wbgrid" },
+            columns: wbgrid.Columns(
+                    wbgrid.Column("pro_id", "id"),
+                    wbgrid.Column("pro_name", "Name"),
+                    wbgrid.Column("pro_img", "Image"),
+                    wbgrid.Column("pro_desc", "Description"),
+                    wbgrid.Column("cat_id_fk", "Category ID")
+                )
+            )
+    </div>
+</div>
+    
+<div class="row" style="text-align:center;">
+    <hr />
+    <div class="col-md-4" >
+        <a href="@Url.Action( "AdminBdisplay", "Admin")">
+            <div class=" btn btn-info">Booking DB</div>
+        </a>
+    </div>
+    <div class="col-md-4">
+
+        <a href="@Url.Action( "Userdisplay", "Admin")">
+            <div class=" btn btn-info">User DB</div>
+        </a>
+    </div>
+    <div class="col-md-4">
+
+        <a href="@Url.Action( "Catdisplay", "Admin")">
+            <div class=" btn btn-info">Category DB</div>
+        </a>
+    </div>
+</div>
+
+
+
+   
+
